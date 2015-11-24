@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get ':region/:profile_id/:name' => 'players#match_history', as: 'match_history'
+  root 'players#match_history', region: 'us', profile_id: 2143215, name: 'PlayerOne'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
