@@ -6,10 +6,21 @@ class PlayersController < ApplicationController
     @player  = Bnet::Starcraft2::Profile.find(region: params[:region], profile_id: params[:profile_id], name: params[:name])
     @matches =  @player.matches
 
-    @matches.each do |match|
-      match.date = Time.at(match.date).strftime('%F')
+    @dates = {}
+    (1.year.ago.beginning_of_day.to_datetime.to_i .. Time.now.beginning_of_day.to_datetime.to_i).step(1.day) do |date|
+      date = Time.at(date).strftime('%F')
+      @dates[date] = []
     end
 
-    render json: @matches
+    @matches.each do |match|
+      match.date = Time.at(match.date).strftime('%F')
+
+      if @dates[match.date]
+        # If match date is still within the year, add the match record
+        @dates[match.date] << match
+      end
+    end
+
+    render json: @dates
   end
 end
