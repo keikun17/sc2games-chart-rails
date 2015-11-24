@@ -18,7 +18,7 @@ class PlayersController < ApplicationController
     @matches.each do |match|
       match.date = Time.at(match.date).strftime('%F')
 
-      if @dates[match.date]
+      if !@dates[match.date].nil?
         # If match date is still within the year, add the match record
         @dates[match.date] << match
       end
