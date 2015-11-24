@@ -1,4 +1,7 @@
 class PlayersController < ApplicationController
+
+  skip_before_filter :verify_authenticity_token
+
   def match_history
     @dates = []
 
