@@ -24,6 +24,6 @@ class PlayersController < ApplicationController
       end
     end
 
-    render json: @dates, callback: params['callback']
+    render json: {player: @player, matches: @dates}, callback: params['callback']
   end
 end
