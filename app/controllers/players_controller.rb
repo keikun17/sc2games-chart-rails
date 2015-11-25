@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
 
     @dates = {}
     (1.year.ago.beginning_of_day.to_datetime.to_i .. Time.now.beginning_of_day.to_datetime.to_i).step(1.day) do |date|
-      date = Time.at(date).strftime("%Y-%-m-%d")
+      date = Time.at(date).strftime("%Y-%m-%d")
       @dates[date] = []
     end
 
