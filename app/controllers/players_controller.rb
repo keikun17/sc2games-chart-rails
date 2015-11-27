@@ -11,8 +11,6 @@ class PlayersController < ApplicationController
   def match_history
     @dates = []
 
-    # @player  = Bnet::Starcraft2::Profile.find(region: 'us', profile_id: 2143215, name: 'PlayerOne')
-    binding.pry
     @profile  = Bnet::Starcraft2::Profile.find(region: params[:region], profile_id: params[:profile_id], name: params[:name])
     if @profile
       Player.find_or_create_by(name: params[:name], region: params[:region], profile_id: params[:profile_id])
