@@ -1,6 +1,6 @@
 class CreatePlayersTable < ActiveRecord::Migration
   def change
-    create_table :players do |t|
+    create_table :profiles do |t|
       t.string :profile_id
       t.index :profile_id
 
