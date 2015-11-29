@@ -1,4 +1,5 @@
 class MatchUpdater
+
   def self.update(profile, bnet_matches)
     # dates = {}
     #

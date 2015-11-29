@@ -9,22 +9,12 @@ class PlayersController < ApplicationController
   end
 
   def match_history
-    @dates = []
-    bnet_player_object  = Bnet::Starcraft2::Profile.find(region: params[:region], profile_id: params[:profile_id], name: params[:name])
+    @profile = ProfileUpdater.find_and_update_from_bnet_params(params[:region], params[:profile_id], params[:name])
 
-
-
-    if bnet_player_object
-      @profile = Profile.find_or_create_by(name: params[:name], region: params[:region], profile_id: params[:profile_id])
-      MatchUpdater.update(@profile, bnet_player_object.matches)
-      ProfileUpdater.update(@profile, bnet_player_object)
+    if @profile.present?
       render json: {profile: @profile, matches: @profile.matches}, callback: params['callback']
     else
       render json: {error: "Profile not found"}
     end
-
   end
-
-  private
-
 end
