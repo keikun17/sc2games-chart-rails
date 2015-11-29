@@ -4,3 +4,11 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+
+desc "Update all profiles"
+task update_profiles: :environment do
+  puts "Updating all profiles"
+  ProfileUpdater.update_all
+  puts "Done updating all profiles"
+end
