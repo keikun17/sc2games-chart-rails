@@ -16,7 +16,7 @@ class ProfileUpdater
 
   def self.find_and_update_from_bnet_params(region, profile_id, r_id, name)
     puts "updating #{region}, #{profile_id}, #{r_id}, #{name}"
-    bnet_player_object  = Bnet::Starcraft2::Profile.find(region: region, profile_id: profile_id, r_id: r_id, name: name)
+    bnet_player_object  = Bnet::Starcraft2::Profile.find(region: region, profile_id: profile_id, realm: r_id, name: name)
 
     if bnet_player_object
       puts "bnet object found"

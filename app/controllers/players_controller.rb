@@ -9,9 +9,6 @@ class PlayersController < ApplicationController
   end
 
   def match_history
-    # Handle legacy permalinks with no r_id
-    params[:r_id] = 1 if params[:r_id].nil?
-
     @profile = ProfileUpdater.find_and_update_from_bnet_params(params[:region], params[:profile_id], params[:r_id],  params[:name])
 
     if @profile.present?
