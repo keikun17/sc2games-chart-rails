@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206134423) do
+ActiveRecord::Schema.define(version: 20151207074526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20151206134423) do
     t.integer  "r_id",         default: 1
   end
 
+  add_index "profiles", ["name"], name: "index_profiles_on_name", using: :btree
   add_index "profiles", ["profile_id"], name: "index_profiles_on_profile_id", using: :btree
+  add_index "profiles", ["r_id"], name: "index_profiles_on_r_id", using: :btree
+  add_index "profiles", ["region"], name: "index_profiles_on_region", using: :btree
 
 end
