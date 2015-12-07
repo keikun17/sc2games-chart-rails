@@ -5,12 +5,12 @@ end
 #
 # Table name: matches
 #
-#  id          :integer          not null, primary key
-#  profiles_id :integer
-#  ms_date     :integer
-#  map         :string
-#  decision    :string
-#  type        :string
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id         :integer          not null, primary key
+#  profile_id :integer
+#  ms_date    :integer
+#  map        :string
+#  decision   :string
+#  game_type  :string
+#  created_at :datetime
+#  updated_at :datetime
 #

@@ -21,4 +21,5 @@ end
 #  portrait     :json
 #  created_at   :datetime
 #  updated_at   :datetime
+#  r_id         :integer          default(1)
 #
